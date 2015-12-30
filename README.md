@@ -1,6 +1,6 @@
 # Rust port of systemd socket activation support
 
-[![Build Status](https://travis-ci.org/viraptor/systemd_socket.svg?branch=master)(https://travis-ci.org/viraptor/systemd_socket)
+[![Build Status](https://travis-ci.org/viraptor/systemd_socket.svg?branch=master)](https://travis-ci.org/viraptor/systemd_socket)
 
 ## Usage
 
