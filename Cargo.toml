@@ -1,0 +1,19 @@
+[package]
+name = "systemd_socket"
+version = "0.1.0"
+authors = ["Stanisław Pitucha <viraptor@gmail.com>"]
+license = "LGPL-2.1+"
+description = "Interface to systemd activated sockets, pure rust port"
+repository = "https://github.com/viraptor/systemd_socket"
+
+[dependencies]
+
+# needed for SO_TYPE, SO_ACCEPTCONN; remove after nix-rust merges
+# https://github.com/carllerche/nix-rust/pull/225
+[dependencies.nix]
+version = "*"
+git = "https://github.com/viraptor/nix-rust.git"
+branch = "so_type"
+
+[dev-dependencies]
+lazy_static = "*"
