@@ -11,7 +11,7 @@ repository = "https://github.com/viraptor/systemd_socket"
 # needed for SO_TYPE, SO_ACCEPTCONN; remove after nix-rust merges
 # https://github.com/carllerche/nix-rust/pull/225
 [dependencies.nix]
-version = "*"
+version = "0.5"
 git = "https://github.com/viraptor/nix-rust.git"
 branch = "so_type"
 
