@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.org/viraptor/systemd_socket.svg?branch=master)](https://travis-ci.org/viraptor/systemd_socket)
 
+## Documentation
+
+[master](http://viraptor-rustdoc.s3-website-us-west-2.amazonaws.com/systemd_socket/master/systemd_socket/index.html)
+
 ## Usage
 
 To use `systemd_socket`, add to your `Cargo.toml`:
