@@ -25,6 +25,7 @@ deploy:
   bucket: viraptor-rustdoc
   local-dir: target/doc
   upload-dir: systemd_socket/${TRAVIS_BRANCH}
+  region: us-west-2
   acl: public_read
   on:
     condition: '"$TRAVIS_RUST_VERSION" == "1.1.0"'
