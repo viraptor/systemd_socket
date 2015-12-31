@@ -1,12 +1,32 @@
 language: rust
+
 rust:
-    - stable
-    - beta
-    - nightly
+  - 1.1.0
+  - stable
+  - beta
+  - nightly
 
 os:
-    - linux
+  - linux
 
 matrix:
-    allow_failures:
-        - rust: nightly
+  allow_failures:
+    - rust: nightly
+
+after_success:
+  - cargo doc --no-deps
+
+deploy:
+  provider: s3
+  access_key_id: AKIAJYMGCQ3G5WWFVYBQ
+  secret_access_key:
+      secure: "CtCOMKikIydpY+HQCstKfMy2uhGcLJuL9rgiPOKu5K/A8QPQgHTwwQnTKQpT/lq9UzJ1WfX4rd8808upc3WEGmvhA1URHb94aQPTEGE92SQtWAhQOe8ntte+Xn6yG+ergegfie1tuJxkXNCbAl3e47LTAdGesyLRyaoOlnD/hSovp625/o/N5GHEQVk45Ney34716KkAuYVd7kHsxc3F0lWblZZMTduUCc0Rwe/hyXxcxS7bG1jTbEL1p9AeL9P+w9EaVsZNjROb25C42Wc4m9IBY69eDxioS/E/hdLl821fE4y0al6EeMjtjO0UZHhY+j5V6EL68bEvOygsqjFITB2fcYXr6C9i/A13IKv4FkeiDKPhSYh7BNXkslOey97XmebB4ocnOr1iMxxQTAJ+6BIrL+icWHyF4CVi9yqW2FsNEQkNPHu7R6YGU/oVnB+IMQ15D+LbIXwZZCReRX1p1EoxWRz+BywEjWyi7p2gCBMOImjfwblyBxRnBcPoGyo5kCmUXOHenCu5h/IZ2HSwvi6wy1Gz76arQhihIs8d7TfND3abZJqcUpeye72YJtZUs4afJ4w3ktHuaidPXE2egS1VvPQ7Epz5YGszUUJJT5piQdW1Alo2aZG+tZMrWjgGkPyS3bSa51YYY2Zdl9Waq0HWCuoF2BbSDC5K8EKbZ6U="
+  bucket: viraptor-rustdoc
+  local-dir: target/doc
+  upload-dir: systemd_socket/${TRAVIS_BRANCH}
+  acl: public_read
+  on:
+    condition: '"$TRAVIS_RUST_VERSION" == "1.1.0"'
+    repo: viraptor/systemd_socket
+    branch:
+      - master
